@@ -1,26 +1,33 @@
 <template>
-  <div id="about">
-    <div class="info-container">
-      <h1>Antonio Jaramillo Fanta</h1>
-      <h2>Web Developer</h2>
-      <div class="buttons-container">
-        <button
-          v-for="button in buttons"
-          :key="button.id"
-          :class="button.img ? 'btn-logo action-button' : 'action-button'"
-          @click="button.action"
-        >
-          <img v-if="button.img" :src="button.img" :alt="button.label" class="button-icon" />
-          <span>
-            {{ button.label }}
-          </span>
-          <span v-if="button.icon" class="material-symbols-outlined">{{ button.icon }}</span>
-        </button>
+  <div class="about-section">
+    <div class="profile-content">
+      <div class="info-container">
+        <h1>Antonio Jaramillo Fanta</h1>
+        <h2>Web Developer</h2>
+        <div class="buttons-container">
+          <button
+            v-for="button in buttons"
+            :key="button.id"
+            :class="button.img ? 'btn-logo action-button' : 'action-button'"
+            @click="button.action"
+          >
+            <img v-if="button.img" :src="button.img" :alt="button.label" class="button-icon" />
+            <span>
+              {{ button.label }}
+            </span>
+            <span v-if="button.icon" class="material-symbols-outlined">{{ button.icon }}</span>
+          </button>
+        </div>
+      </div>
+      <div class="image-container">
+        <img src="/antonio-profile.webp" alt="Imagen de perfil" class="profile-image" />
       </div>
     </div>
-    <div class="image-container">
-      <img src="/antonio-profile.webp" alt="Imagen de perfil" class="profile-image" />
-    </div>
+    <article>
+      <p class="about-text">
+        Soy desarrollador web especializado en frontend con 3 años de experiencia, durante los cuales he trabajado tanto con emprendedores como con grandes empresas. Aprendo rápido: en este tiempo he incorporado tecnologías como Vue.js, React, Lit Elements, Playwright y Electron.js. Vengo del mundo deportivo, lo que me permite reconocer mi rol dentro de un equipo y contribuir a un buen ambiente de trabajo. Me motiva aprender constantemente y encontrar nuevas formas de hacer las cosas, con el objetivo de seguir creciendo y convertirme en un mejor programador.
+      </p>
+    </article>
   </div>
 </template>
 
@@ -34,7 +41,7 @@ const buttons = [
 </script>
 
 <style scoped>
-#about {
+.profile-content {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -51,6 +58,13 @@ h2 {
   padding: 0;
   font-size: 1em;
 }
+.about-text {
+  color: #d9d8dd;
+  background-color: #2c2c30;
+  padding: 20px;
+  border-radius: 12px;
+  font-weight: normal;
+}
 .info-container {
   max-width: 60%;
   text-align: left;
@@ -60,10 +74,6 @@ h2 {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-.image-container {
-  max-width: 40%;
-  padding: 20px;
 }
 .profile-image {
   width: 500px;
@@ -104,7 +114,7 @@ h2 {
   }
 
 @media (max-width: 1200px) {
-  #about {
+  .profile-content {
     flex-direction: column;
     align-items: center;
   }
@@ -122,6 +132,9 @@ h2 {
   .buttons-container {
     justify-content: center;
   }
+  .about-text {
+    font-size: 0.8em;
+  }
 }
 
 @media (max-width: 600px) {
@@ -138,6 +151,9 @@ h2 {
   }
   .btn-logo {
     width: 50px;
+  }
+  .about-text {
+    font-size: 0.7em;
   }
 }
 </style>

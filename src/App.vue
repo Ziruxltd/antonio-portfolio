@@ -1,9 +1,11 @@
 <template>
   <div class="page">
     <HeaderComponent v-model="headerOptions" @clickOption="handleHeaderClick" />
-    <div class="content">
-      <AboutComponent />
-    </div>
+    <main class="content">
+      <section id="about">
+        <AboutComponent />
+      </section>
+    </main>
     <FooterComponent />
   </div>
 </template>
