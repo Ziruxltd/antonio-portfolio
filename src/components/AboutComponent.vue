@@ -25,7 +25,7 @@
     </div>
     <article>
       <p class="about-text">
-        Soy desarrollador web especializado en frontend con 3 años de experiencia, durante los cuales he trabajado tanto con emprendedores como con grandes empresas. Aprendo rápido: en este tiempo he incorporado tecnologías como Vue.js, React, Lit Elements, Playwright y Electron.js. Vengo del mundo deportivo, lo que me permite reconocer mi rol dentro de un equipo y contribuir a un buen ambiente de trabajo. Me motiva aprender constantemente y encontrar nuevas formas de hacer las cosas, con el objetivo de seguir creciendo y convertirme en un mejor programador.
+        I am a web developer specialized in frontend with 3 years of experience, having worked with both entrepreneurs and large companies. I learn quickly: during this time I have mastered technologies such as Vue.js, React, Lit Elements, Playwright, and Electron.js. Coming from a sports background, I know how to identify my role within a team and contribute to a positive work environment. I am driven by continuous learning and exploring new ways to solve problems, with the goal of growing and becoming a better programmer.
       </p>
     </article>
   </div>
