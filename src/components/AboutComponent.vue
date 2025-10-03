@@ -100,5 +100,44 @@ h2 {
 }
 .button-icon {
   margin: 0;
-  height: 100%;}
+  height: 100%;
+  }
+
+@media (max-width: 1200px) {
+  #about {
+    flex-direction: column;
+    align-items: center;
+  }
+  .info-container {
+    max-width: 100%;
+    text-align: center;
+  }
+  .image-container {
+    max-width: 100%;
+  }
+  .profile-image {
+    width: 100%;
+    height: auto;
+  }
+  .buttons-container {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1.5em;
+  }
+  h2 {
+    font-size: 0.85em;
+  }
+  .action-button {
+    height: 50px;
+    font-size: 0.6em;
+    padding: 8;
+  }
+  .btn-logo {
+    width: 50px;
+  }
+}
 </style>

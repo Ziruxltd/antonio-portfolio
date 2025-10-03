@@ -83,4 +83,19 @@ nav ul li a.selected {
   border-radius: 6px;
   border: 1px solid #444;
 }
+
+@media (max-width: 600px) {
+  nav ul {
+    font-size: 0.8em;
+    gap: 0.5em;
+    padding: 0 5px;
+  }
+  nav ul li {
+    margin: 0.3em 0;
+  }
+  nav ul li a {
+    padding: 0.4em 0.5em;
+  }
+
+}
 </style>
