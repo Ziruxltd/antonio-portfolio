@@ -17,8 +17,8 @@
 <script setup>
 import HeaderComponent from './components/HeaderComponent.vue';
 import FooterComponent from './components/FooterComponent.vue';
-import AboutComponent from './components/AboutComponent.vue';
-import ProjectsComponent from './components/ProjectsComponent.vue';
+import AboutComponent from './sections/AboutComponent.vue';
+import ProjectsComponent from './sections/ProjectsComponent.vue';
 import { ref } from 'vue';
 
 const headerOptions = ref([

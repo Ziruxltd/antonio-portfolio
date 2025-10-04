@@ -25,19 +25,42 @@
     </div>
     <article>
       <p class="about-text">
-        I am a web developer specialized in frontend with 3 years of experience, having worked with both entrepreneurs and large companies. I learn quickly: during this time I have mastered technologies such as Vue.js, React, Lit Elements, Playwright, and Electron.js. Coming from a sports background, I know how to identify my role within a team and contribute to a positive work environment. I am driven by continuous learning and exploring new ways to solve problems, with the goal of growing and becoming a better programmer.
+        I am a web developer specialized in frontend with 3 years of experience, having worked with both entrepreneurs and large companies. I am a quick learner: during this time I have mastered technologies such as Vue.js, React, Lit Elements, Playwright, and Electron.js. Coming from a sports background, I know how to identify my role within a team and contribute to a positive work environment. I am driven by continuous learning and exploring new ways to solve problems, with the goal of growing and becoming a better programmer.
       </p>
     </article>
+    <div class="skills-container">
+      <h2>Skills</h2>
+      <div class="chips">
+        <ChipComponent v-for="skill in skills" :key="skill.id" :label="skill.label" :icon="skill.icon" />
+      </div>
+      
+    </div>
   </div>
 </template>
 
 <script setup>
+import ChipComponent from '../components/ChipComponent.vue';
+
 const buttons = [
   { id: 1, label: 'Download CV', icon: 'Download', action: () => window.open('/cv.pdf') },
-  { id: 2, img: '/github-icon.svg', action: () => window.open('https://github.com/Ziruxltd', '_blank') },
-  { id: 3, img: '/linkedin-icon.png', action: () => window.open('https://www.linkedin.com/in/antonio-jaramillo-fanta/', '_blank') },
+  { id: 2, img: '/icons/github-icon.svg', action: () => window.open('https://github.com/Ziruxltd', '_blank') },
+  { id: 3, img: '/icons/linkedin-icon.png', action: () => window.open('https://www.linkedin.com/in/antonio-jaramillo-fanta/', '_blank') },
 ];
 
+const skills = [
+  { id: 1, label: 'JavaScript', icon: '/icons/javascript-icon.png' },
+  { id: 2, label: 'TypeScript', icon: '/icons/typescript-icon.png' },
+  { id: 3, label: 'Vue.js', icon: '/icons/vue-icon.png' },
+  { id: 4, label: 'React', icon: '/icons/react-icon.svg' },
+  { id: 5, label: 'HTML5', icon: '/icons/html-icon.png' },
+  { id: 6, label: 'CSS3', icon: '/icons/css-icon.png' },
+  { id: 7, label: 'Sass' },
+  { id: 8, label: 'Git', icon: '/icons/github-icon.svg' },
+  { id: 9, label: 'Node.js', icon: '/icons/node-icon.png' },
+  { id: 10, label: 'Electron.js', icon: '/icons/electronjs-icon.png' },
+  { id: 11, label: 'Playwright', icon: '/icons/playwright-icon.png' },
+  { id: 12, label: 'Lit', icon: '/icons/lit-icon.png' }
+];
 </script>
 
 <style scoped>
@@ -111,7 +134,17 @@ h2 {
 .button-icon {
   margin: 0;
   height: 100%;
-  }
+}
+.skills-container {
+  margin-top: 30px;
+  text-align: left;
+}
+.chips {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
 
 @media (max-width: 1200px) {
   .profile-content {

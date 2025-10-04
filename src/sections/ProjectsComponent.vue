@@ -13,7 +13,7 @@
 </template>
 
 <script setup>
-import CardComponent from './CardComponent.vue';
+import CardComponent from '../components/CardComponent.vue';
 
 const projects = [
   {
@@ -25,17 +25,24 @@ const projects = [
   },
   {
     id: 2,
-    image: '',
+    image: '/wordclock.webp',
     title: 'Word Clock',
     description: 'A clock that displays the time in words instead of numbers.',
     link: 'https://wordclock.antoniojaramillo.dev'
   },
   {
     id: 3,
-    image: '',
+    image: '/game-of-life.webp',
     title: 'Game of Life',
     description: 'A simulation of Conway\'s Game of Life.',
     link: 'https://gameoflife.antoniojaramillo.dev'
+  },
+  {
+    id: 4,
+    image: '/advent-of-code.webp',
+    title: 'Advent of Code',
+    description: 'A collection of my solutions to the Advent of Code challenges using JavaScript.',
+    link: 'https://github.com/Ziruxltd/Advent-of-code'
   }
 ];
 </script>
