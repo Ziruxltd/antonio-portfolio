@@ -19,7 +19,41 @@ import HeaderComponent from './components/HeaderComponent.vue';
 import FooterComponent from './components/FooterComponent.vue';
 import AboutComponent from './sections/AboutComponent.vue';
 import ProjectsComponent from './sections/ProjectsComponent.vue';
-import { ref } from 'vue';
+import { ref, onMounted, onBeforeUnmount } from 'vue';
+
+
+let observer;
+
+function setSelectedSection(id) {
+  headerOptions.value.forEach(opt => {
+    opt.selected = (opt.id === id);
+  });
+}
+
+onMounted(() => {
+  const sections = headerOptions.value.map(opt => document.getElementById(opt.id)).filter(Boolean);
+
+  observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setSelectedSection(entry.target.id);
+        }
+      });
+    },
+    {
+      root: null,
+      rootMargin: '-100px 0px 0px 0px',
+      threshold: 0.5
+    }
+  );
+
+  sections.forEach(section => observer.observe(section));
+});
+
+onBeforeUnmount(() => {
+  if (observer) observer.disconnect();
+});
 
 const headerOptions = ref([
   { name: 'About', id: 'about', selected: true },

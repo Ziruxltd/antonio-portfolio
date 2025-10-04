@@ -59,7 +59,8 @@ const skills = [
   { id: 9, label: 'Node.js', icon: '/icons/node-icon.png' },
   { id: 10, label: 'Electron.js', icon: '/icons/electronjs-icon.png' },
   { id: 11, label: 'Playwright', icon: '/icons/playwright-icon.png' },
-  { id: 12, label: 'Lit', icon: '/icons/lit-icon.png' }
+  { id: 12, label: 'Lit', icon: '/icons/lit-icon.png' },
+  { id: 13, label: 'AWS', icon: '/icons/aws-icon.png' },
 ];
 </script>
 
