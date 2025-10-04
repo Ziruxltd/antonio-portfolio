@@ -5,6 +5,10 @@
       <section id="about">
         <AboutComponent />
       </section>
+      <section id="projects">
+        <h2>Projects</h2>
+        <ProjectsComponent />
+      </section>
     </main>
     <FooterComponent />
   </div>
@@ -14,6 +18,7 @@
 import HeaderComponent from './components/HeaderComponent.vue';
 import FooterComponent from './components/FooterComponent.vue';
 import AboutComponent from './components/AboutComponent.vue';
+import ProjectsComponent from './components/ProjectsComponent.vue';
 import { ref } from 'vue';
 
 const headerOptions = ref([
@@ -25,7 +30,9 @@ const headerOptions = ref([
 function handleHeaderClick(option) {
   const element = document.querySelector(`#${option.id}`);
   if (element) {
-    element.scrollIntoView({ behavior: 'smooth' });
+    const yOffset = -100;
+    const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+    window.scrollTo({ top: y, behavior: 'smooth' });
   }
 }
 </script>

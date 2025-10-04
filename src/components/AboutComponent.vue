@@ -68,7 +68,7 @@ h2 {
 .info-container {
   max-width: 60%;
   text-align: left;
-  padding: 20px;
+  padding: 20px 20px 20px 0;
 }
 .image-container {
   display: flex;

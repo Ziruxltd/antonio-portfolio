@@ -2,12 +2,14 @@
   <footer id="footer" class="footer">
   <hr>
     <div class="footer-content">
-      <span>Built with Vue.js &mdash; Version 1.0.0</span>
+      <span>Built with Vue.js &mdash; Version {{ version }}</span>
     </div>
   </footer>
 </template>
 
 <script setup>
+import pkg from '../../package.json'
+const version = pkg.version
 </script>
 
 <style scoped>
