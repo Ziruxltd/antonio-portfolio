@@ -9,6 +9,10 @@
         <h2>Projects</h2>
         <ProjectsComponent />
       </section>
+      <section id="contact">
+        <h2>Contact</h2>
+        <p>If you want to get in touch, you can reach me via email at <a href="mailto:antoniojaramillofanta@gmail.com">antoniojaramillofanta@gmail.com</a>.</p>
+      </section>
     </main>
     <FooterComponent />
   </div>
