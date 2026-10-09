@@ -4,15 +4,24 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "rsbuild build",
     "dev": "rsbuild dev --open",
-    "preview": "rsbuild preview"
+    "build": "rsbuild build",
+    "preview": "rsbuild preview",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
   "dependencies": {
     "vue": "^3.5.21"
   },
   "devDependencies": {
+    "@eslint/js": "^9.39.5",
     "@rsbuild/core": "^1.5.6",
-    "@rsbuild/plugin-vue": "^1.1.2"
+    "@rsbuild/plugin-vue": "^1.1.2",
+    "eslint": "^9.39.5",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-vue": "^10.11.1",
+    "globals": "^16.5.0",
+    "prettier": "^3.9.9"
   }
 }

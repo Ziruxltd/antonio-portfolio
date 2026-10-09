@@ -1,9 +1,9 @@
 <template>
   <div class="page">
-    <HeaderComponent v-model="headerOptions" @clickOption="handleHeaderClick" />
+    <HeaderComponent :sections="sections" :active-id="activeId" />
     <main class="content">
-      <section id="about">
-        <AboutComponent />
+      <section v-for="section in sections" :id="section.id" :key="section.id" class="section">
+        <component :is="section.component" />
       </section>
     </main>
     <FooterComponent />
@@ -11,23 +11,35 @@
 </template>
 
 <script setup>
+import { onBeforeUnmount, onMounted, ref } from 'vue';
 import HeaderComponent from './components/HeaderComponent.vue';
 import FooterComponent from './components/FooterComponent.vue';
 import AboutComponent from './components/AboutComponent.vue';
-import { ref } from 'vue';
+import ProjectsComponent from './components/ProjectsComponent.vue';
+import ContactComponent from './components/ContactComponent.vue';
 
-const headerOptions = ref([
-  { name: 'About', id: 'about', selected: true },
-  { name: 'Projects', id: 'projects', selected: false },
-  { name: 'Contact', id: 'contact', selected: false },
-]);
+const sections = [
+  { name: 'About', id: 'about', component: AboutComponent },
+  { name: 'Projects', id: 'projects', component: ProjectsComponent },
+  { name: 'Contact', id: 'contact', component: ContactComponent },
+];
 
-function handleHeaderClick(option) {
-  const element = document.querySelector(`#${option.id}`);
-  if (element) {
-    element.scrollIntoView({ behavior: 'smooth' });
-  }
-}
+const activeId = ref(sections[0].id);
+let observer;
+
+onMounted(() => {
+  // Marks as active the section crossing the middle of the viewport.
+  observer = new IntersectionObserver(
+    (entries) => {
+      const visible = entries.find((entry) => entry.isIntersecting);
+      if (visible) activeId.value = visible.target.id;
+    },
+    { rootMargin: '-50% 0px -50% 0px' },
+  );
+  sections.forEach(({ id }) => observer.observe(document.getElementById(id)));
+});
+
+onBeforeUnmount(() => observer?.disconnect());
 </script>
 
 <style scoped>
@@ -35,24 +47,39 @@ function handleHeaderClick(option) {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  text-align: center;
-  font-size: 3em;
-  font-weight: bold;
-  color: white;
-  padding-top: 80px;
+  color: var(--color-text);
+  padding-top: var(--header-height);
   width: 100%;
   overflow-x: hidden;
-  box-sizing: border-box;
 }
 
 .content {
-  padding: 50px 5%;
+  flex: 1;
+  padding: 3rem 5%;
   width: 100%;
   max-width: 1500px;
-  text-align: justify;
-  font-size: 0.5em;
+  font-size: 1.5rem;
   line-height: 1.6;
   margin: 0 auto;
-  box-sizing: border-box;
+}
+
+.section {
+  scroll-margin-top: var(--header-height);
+}
+
+.section + .section {
+  margin-top: 5rem;
+}
+
+@media (max-width: 1200px) {
+  .content {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .content {
+    font-size: 1rem;
+  }
 }
 </style>

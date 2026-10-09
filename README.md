@@ -1,36 +1,35 @@
-# Rsbuild project
+# Antonio Jaramillo — Portfolio
 
-## Setup
+My personal portfolio website: who I am, some of my projects and how to get in touch.
 
-Install the dependencies:
+Built with [Vue 3](https://vuejs.org/) and [Rsbuild](https://rsbuild.rs/).
 
-```bash
-pnpm install
-```
+## Getting started
 
-## Get started
-
-Start the dev server, and the app will be available at [http://localhost:3000](http://localhost:3000).
+Requires Node.js 22 or later.
 
 ```bash
-pnpm dev
+npm install
+npm run dev       # dev server at http://localhost:3000
+npm run build     # production build in dist/
+npm run preview   # preview the production build
 ```
 
-Build the app for production:
+## Code quality
 
 ```bash
-pnpm build
+npm run lint          # ESLint
+npm run format        # format all files with Prettier
+npm run format:check  # check formatting (used in CI)
 ```
 
-Preview the production build locally:
+Every push and pull request to `master` runs lint, format check and build on GitHub Actions.
 
-```bash
-pnpm preview
-```
+## Editing content
 
-## Learn more
+- Personal info and links: `src/data/profile.js`
+- Projects: `src/data/projects.js`
+- CV: `public/cv.pdf`
+- Page title and meta tags: `rsbuild.config.mjs` and `index.html`
 
-To learn more about Rsbuild, check out the following resources:
-
-- [Rsbuild documentation](https://rsbuild.rs) - explore Rsbuild features and APIs.
-- [Rsbuild GitHub repository](https://github.com/web-infra-dev/rsbuild) - your feedback and contributions are welcome!
+The version shown in the footer is read from `package.json`.

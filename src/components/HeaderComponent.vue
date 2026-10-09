@@ -1,12 +1,13 @@
 <template>
   <header>
-    <nav>
+    <nav aria-label="Main">
       <ul>
-        <li v-for="option in modelValue" :key="option.name">
+        <li v-for="section in sections" :key="section.id">
           <a
-            :class="{ selected: option.selected }"
-            @click="handleClick(option)"
-            >{{ option.name }}</a
+            :href="`#${section.id}`"
+            :class="{ selected: section.id === activeId }"
+            :aria-current="section.id === activeId ? 'location' : undefined"
+            >{{ section.name }}</a
           >
         </li>
       </ul>
@@ -15,31 +16,21 @@
 </template>
 
 <script setup>
-import { defineEmits, defineProps } from 'vue';
-
-const props = defineProps({
-  modelValue: {
+defineProps({
+  sections: {
     type: Array,
     required: true,
   },
+  activeId: {
+    type: String,
+    default: '',
+  },
 });
-
-const emit = defineEmits(['update:modelValue', 'clickOption']);
-
-function handleClick(option) {
-  const updatedOptions = props.modelValue.map(opt => ({
-    ...opt,
-    selected: opt.name === option.name
-  }));
-  
-  emit('update:modelValue', updatedOptions);
-  emit('clickOption', option);
-}
 </script>
 
 <style scoped>
 header {
-  padding: 0.5em 1rem;
+  padding: 0.75rem 1rem;
   width: 100%;
   position: fixed;
   top: 0;
@@ -47,55 +38,53 @@ header {
   z-index: 1000;
   display: flex;
   justify-content: center;
-  box-sizing: border-box;
 }
 nav ul {
-  background-color: #2c2c30;
+  background-color: var(--color-surface);
   max-width: 100%;
   list-style: none;
   display: flex;
   justify-content: center;
   margin: 0;
   padding: 5px 10px;
-  border-radius: 12px;
-  border: 1px solid #444;
-  box-sizing: border-box;
+  border-radius: var(--radius);
+  border: 1px solid var(--color-border);
 }
 nav ul li {
-  margin: 0 0.3em;
+  margin: 0 0.3rem;
   display: flex;
   align-items: center;
-  cursor: pointer;
 }
 nav ul li a {
-  color: #8d8c8e;
+  color: var(--color-text-muted);
   text-decoration: none;
-  font-size: 0.5em;
+  font-size: 1.5rem;
+  font-weight: 600;
   padding: 0.15em 0.3em;
+  border: 1px solid transparent;
+  border-radius: 6px;
 }
 nav ul li a:hover {
-  color: #d9d8dd;
+  color: var(--color-text);
 }
 nav ul li a.selected {
-  color: #2c2c30;
-  font-weight: bold;
-  background-color: #d9d8dd;
-  border-radius: 6px;
-  border: 1px solid #444;
+  color: var(--color-surface);
+  font-weight: 700;
+  background-color: var(--color-text);
+  border-color: var(--color-border);
 }
 
 @media (max-width: 600px) {
   nav ul {
-    font-size: 0.8em;
-    gap: 0.5em;
+    gap: 0.25rem;
     padding: 0 5px;
   }
   nav ul li {
-    margin: 0.3em 0;
+    margin: 0.3rem 0;
   }
   nav ul li a {
-    padding: 0.4em 0.5em;
+    font-size: 1.2rem;
+    padding: 0.3em 0.5em;
   }
-
 }
 </style>

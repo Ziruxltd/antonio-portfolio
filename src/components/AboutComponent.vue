@@ -2,42 +2,62 @@
   <div class="about-section">
     <div class="profile-content">
       <div class="info-container">
-        <h1>Antonio Jaramillo Fanta</h1>
-        <h2>Web Developer</h2>
+        <h1>{{ profile.name }}</h1>
+        <h2>{{ profile.role }}</h2>
         <div class="buttons-container">
-          <button
-            v-for="button in buttons"
-            :key="button.id"
-            :class="button.img ? 'btn-logo action-button' : 'action-button'"
-            @click="button.action"
+          <a class="action-button" :href="profile.cv" download="Antonio-Jaramillo-CV.pdf">
+            <span>Download CV</span>
+            <svg class="download-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M12 16l-5-5 1.4-1.45 2.6 2.6V4h2v8.15l2.6-2.6L17 11l-5 5zm-6 4q-.8 0-1.4-.6T4 18v-3h2v3h12v-3h2v3q0 .8-.6 1.4T18 20H6z"
+              />
+            </svg>
+          </a>
+          <a
+            v-for="link in socialLinks"
+            :key="link.label"
+            class="action-button btn-logo"
+            :href="link.href"
+            target="_blank"
+            rel="noopener noreferrer"
+            :aria-label="link.label"
+            :title="link.label"
           >
-            <img v-if="button.img" :src="button.img" :alt="button.label" class="button-icon" />
-            <span>
-              {{ button.label }}
-            </span>
-            <span v-if="button.icon" class="material-symbols-outlined">{{ button.icon }}</span>
-          </button>
+            <img :src="link.img" alt="" class="button-icon" />
+          </a>
         </div>
       </div>
       <div class="image-container">
-        <img src="/antonio-profile.webp" alt="Imagen de perfil" class="profile-image" />
+        <img
+          src="/antonio-profile.webp"
+          :alt="`Portrait of ${profile.name}`"
+          class="profile-image"
+          width="1000"
+          height="1200"
+          fetchpriority="high"
+        />
       </div>
     </div>
     <article>
       <p class="about-text">
-        I am a web developer specialized in frontend with 3 years of experience, having worked with both entrepreneurs and large companies. I learn quickly: during this time I have mastered technologies such as Vue.js, React, Lit Elements, Playwright, and Electron.js. Coming from a sports background, I know how to identify my role within a team and contribute to a positive work environment. I am driven by continuous learning and exploring new ways to solve problems, with the goal of growing and becoming a better programmer.
+        I am a web developer specialized in frontend with 3 years of experience, having worked with
+        both entrepreneurs and large companies. I learn quickly: during this time I have mastered
+        technologies such as Vue.js, React, Lit Elements, Playwright, and Electron.js. Coming from a
+        sports background, I know how to identify my role within a team and contribute to a positive
+        work environment. I am driven by continuous learning and exploring new ways to solve
+        problems, with the goal of growing and becoming a better programmer.
       </p>
     </article>
   </div>
 </template>
 
 <script setup>
-const buttons = [
-  { id: 1, label: 'Download CV', icon: 'Download', action: () => window.open('/cv.pdf') },
-  { id: 2, img: '/github-icon.svg', action: () => window.open('https://github.com/Ziruxltd', '_blank') },
-  { id: 3, img: '/linkedin-icon.png', action: () => window.open('https://www.linkedin.com/in/antonio-jaramillo-fanta/', '_blank') },
-];
+import { profile } from '../data/profile.js';
 
+const socialLinks = [
+  { label: 'GitHub', href: profile.github, img: '/github-icon.svg' },
+  { label: 'LinkedIn', href: profile.linkedin, img: '/linkedin-icon.png' },
+];
 </script>
 
 <style scoped>
@@ -45,115 +65,104 @@ const buttons = [
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 2rem;
   width: 100%;
-  color: #d9d8dd;
 }
 h1 {
   margin: 0;
-  padding: 0;
-  font-size: 1.75em;
+  font-size: 2.625rem;
+  line-height: 1.2;
+  color: var(--color-text-strong);
 }
 h2 {
   margin: 0;
-  padding: 0;
-  font-size: 1em;
+  font-size: 1.5rem;
 }
 .about-text {
-  color: #d9d8dd;
-  background-color: #2c2c30;
+  background-color: var(--color-surface);
   padding: 20px;
-  border-radius: 12px;
-  font-weight: normal;
+  border-radius: var(--radius);
 }
 .info-container {
   max-width: 60%;
-  text-align: left;
   padding: 20px;
 }
 .image-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-shrink: 0;
+  width: 500px;
+  max-width: 100%;
 }
 .profile-image {
-  width: 500px;
-  height: 600px;
-  border-radius: 12px;
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 5 / 6;
+  border-radius: var(--radius);
   object-fit: cover;
 }
 .buttons-container {
   margin-top: 20px;
   display: flex;
+  flex-wrap: wrap;
   gap: 15px;
 }
 .action-button {
-  cursor: pointer;
-  margin: 0;
-  border: 3px solid #888;
-  border-radius: 12px;
+  border: 3px solid var(--color-border-strong);
+  border-radius: var(--radius);
   padding: 10px;
   height: 75px;
-  object-fit: cover;
-  background-color: transparent;
-  color: #d9d8dd;
-  font-size: 1em;
+  color: var(--color-text);
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-decoration: none;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
 }
 .btn-logo {
   width: 75px;
 }
 .action-button:hover {
-  border-color: #d9d8dd;
-  color: #fff;
+  border-color: var(--color-text);
+  color: var(--color-text-strong);
 }
 .button-icon {
-  margin: 0;
   height: 100%;
-  }
+}
+.download-icon {
+  width: 1.4em;
+  height: 1.4em;
+  fill: currentColor;
+}
 
 @media (max-width: 1200px) {
   .profile-content {
     flex-direction: column;
-    align-items: center;
   }
   .info-container {
     max-width: 100%;
     text-align: center;
   }
-  .image-container {
-    max-width: 100%;
-  }
-  .profile-image {
-    width: 100%;
-    height: auto;
-  }
   .buttons-container {
     justify-content: center;
-  }
-  .about-text {
-    font-size: 0.8em;
   }
 }
 
 @media (max-width: 600px) {
   h1 {
-    font-size: 1.5em;
+    font-size: 2rem;
   }
   h2 {
-    font-size: 0.85em;
+    font-size: 1.25rem;
   }
   .action-button {
     height: 50px;
-    font-size: 0.6em;
-    padding: 8;
+    font-size: 1rem;
+    padding: 8px;
   }
   .btn-logo {
     width: 50px;
-  }
-  .about-text {
-    font-size: 0.7em;
   }
 }
 </style>
