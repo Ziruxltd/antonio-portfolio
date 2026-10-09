@@ -14,9 +14,9 @@
 import { onBeforeUnmount, onMounted, ref } from 'vue';
 import HeaderComponent from './components/HeaderComponent.vue';
 import FooterComponent from './components/FooterComponent.vue';
-import AboutComponent from './components/AboutComponent.vue';
-import ProjectsComponent from './components/ProjectsComponent.vue';
-import ContactComponent from './components/ContactComponent.vue';
+import AboutComponent from './sections/AboutComponent.vue';
+import ProjectsComponent from './sections/ProjectsComponent.vue';
+import ContactComponent from './sections/ContactComponent.vue';
 
 const sections = [
   { name: 'About', id: 'about', component: AboutComponent },

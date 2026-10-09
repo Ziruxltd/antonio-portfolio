@@ -1,0 +1,15 @@
+export const skills = [
+  { label: 'JavaScript', icon: '/icons/javascript-icon.png' },
+  { label: 'TypeScript', icon: '/icons/typescript-icon.png' },
+  { label: 'Vue.js', icon: '/icons/vue-icon.png' },
+  { label: 'React', icon: '/icons/react-icon.svg' },
+  { label: 'HTML5', icon: '/icons/html-icon.png' },
+  { label: 'CSS3', icon: '/icons/css-icon.png' },
+  { label: 'Sass' },
+  { label: 'Git', icon: '/icons/github-icon.svg' },
+  { label: 'Node.js', icon: '/icons/node-icon.png' },
+  { label: 'Electron.js', icon: '/icons/electronjs-icon.png' },
+  { label: 'Playwright', icon: '/icons/playwright-icon.png' },
+  { label: 'Lit', icon: '/icons/lit-icon.png' },
+  { label: 'AWS', icon: '/icons/aws-icon.png' },
+];

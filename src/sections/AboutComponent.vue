@@ -41,22 +41,32 @@
     <article>
       <p class="about-text">
         I am a web developer specialized in frontend with 3 years of experience, having worked with
-        both entrepreneurs and large companies. I learn quickly: during this time I have mastered
-        technologies such as Vue.js, React, Lit Elements, Playwright, and Electron.js. Coming from a
-        sports background, I know how to identify my role within a team and contribute to a positive
-        work environment. I am driven by continuous learning and exploring new ways to solve
-        problems, with the goal of growing and becoming a better programmer.
+        both entrepreneurs and large companies. I am a quick learner: during this time I have
+        mastered technologies such as Vue.js, React, Lit Elements, Playwright, and Electron.js.
+        Coming from a sports background, I know how to identify my role within a team and contribute
+        to a positive work environment. I am driven by continuous learning and exploring new ways to
+        solve problems, with the goal of growing and becoming a better programmer.
       </p>
     </article>
+    <div class="skills-container">
+      <h2>Skills</h2>
+      <ul class="chips">
+        <li v-for="skill in skills" :key="skill.label">
+          <ChipComponent :label="skill.label" :icon="skill.icon" />
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
 <script setup>
+import ChipComponent from '../components/ChipComponent.vue';
 import { profile } from '../data/profile.js';
+import { skills } from '../data/skills.js';
 
 const socialLinks = [
-  { label: 'GitHub', href: profile.github, img: '/github-icon.svg' },
-  { label: 'LinkedIn', href: profile.linkedin, img: '/linkedin-icon.png' },
+  { label: 'GitHub', href: profile.github, img: '/icons/github-icon.svg' },
+  { label: 'LinkedIn', href: profile.linkedin, img: '/icons/linkedin-icon.png' },
 ];
 </script>
 
@@ -85,7 +95,7 @@ h2 {
 }
 .info-container {
   max-width: 60%;
-  padding: 20px;
+  padding: 20px 20px 20px 0;
 }
 .image-container {
   flex-shrink: 0;
@@ -135,6 +145,17 @@ h2 {
   height: 1.4em;
   fill: currentColor;
 }
+.skills-container {
+  margin-top: 30px;
+}
+.chips {
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
 
 @media (max-width: 1200px) {
   .profile-content {
@@ -142,6 +163,7 @@ h2 {
   }
   .info-container {
     max-width: 100%;
+    padding: 20px;
     text-align: center;
   }
   .buttons-container {

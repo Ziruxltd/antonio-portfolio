@@ -1,38 +1,33 @@
 export const projects = [
   {
-    name: 'Weather for Copec',
+    title: 'Días de pensiones',
     description:
-      'Real-time weather server showing temperature, UV index, humidity, wind and more from the Open-Meteo API, with automatic location detection.',
-    tech: ['JavaScript', 'HTML', 'Open-Meteo API'],
-    repo: 'https://github.com/Ziruxltd/weather-for-copec',
+      'A small project that helps raise awareness about the excessive spending on retirement pensions in Spain.',
+    tech: ['Vue.js', 'Quasar'],
+    link: 'https://diaspensiones.antoniojaramillo.dev',
+    repo: 'https://github.com/Ziruxltd/dias-de-pensiones',
   },
   {
-    name: 'Social Network',
-    description: 'A Twitter-like social network built for learning and code practice purposes.',
-    tech: ['Vue.js'],
-    repo: 'https://github.com/Ziruxltd/social-network',
-    demo: 'https://social-network-jaramillo.netlify.app/',
-  },
-  {
-    name: 'Word Clock',
-    description:
-      'A clock that tells the time with words, inspired by one I saw in a restaurant in Madrid.',
+    title: 'Word Clock',
+    description: 'A clock that displays the time in words instead of numbers.',
+    image: '/wordclock.webp',
     tech: ['JavaScript'],
+    link: 'https://wordclock.antoniojaramillo.dev',
     repo: 'https://github.com/Ziruxltd/word-clock',
-    demo: 'https://word-clock-jaramillo.netlify.app/',
   },
   {
-    name: 'Game of Life',
-    description: "Conway's Game of Life, a personal project to practice JavaScript.",
-    tech: ['JavaScript', 'Farm'],
+    title: 'Game of Life',
+    description: "A simulation of Conway's Game of Life.",
+    image: '/game-of-life.webp',
+    tech: ['JavaScript'],
+    link: 'https://gameoflife.antoniojaramillo.dev',
     repo: 'https://github.com/Ziruxltd/game-of-life',
-    demo: 'https://gameoflife.antoniojaramillo.dev/',
   },
   {
-    name: 'Lotería de Navidad',
-    description:
-      'A simulator that shows how long it would take you to win the Spanish Christmas lottery.',
-    tech: ['Vue.js', 'TypeScript'],
-    repo: 'https://github.com/Ziruxltd/loteria-navidad',
+    title: 'Advent of Code',
+    description: 'A collection of my solutions to the Advent of Code challenges using JavaScript.',
+    image: '/advent-of-code.webp',
+    tech: ['JavaScript'],
+    repo: 'https://github.com/Ziruxltd/Advent-of-code',
   },
 ];

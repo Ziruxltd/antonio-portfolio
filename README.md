@@ -28,7 +28,8 @@ Every push and pull request to `master` runs lint, format check and build on Git
 ## Editing content
 
 - Personal info and links: `src/data/profile.js`
-- Projects: `src/data/projects.js`
+- Projects: `src/data/projects.js` (screenshots in `public/`)
+- Skills: `src/data/skills.js` (icons in `public/icons/`)
 - CV: `public/cv.pdf`
 - Page title and meta tags: `rsbuild.config.mjs` and `index.html`
 
