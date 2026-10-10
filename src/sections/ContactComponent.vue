@@ -1,10 +1,7 @@
 <template>
   <div class="contact">
-    <h2 class="section-title">Contact</h2>
-    <p>
-      I'm open to new opportunities and collaborations. Feel free to reach out through any of these
-      channels.
-    </p>
+    <h2 class="section-title">{{ t('contact.title') }}</h2>
+    <p>{{ t('contact.text') }}</p>
     <ul class="contact-links">
       <li v-for="link in links" :key="link.label">
         <a
@@ -19,13 +16,19 @@
 </template>
 
 <script setup>
+import { computed } from 'vue';
 import { profile } from '../data/profile.js';
+import { useI18n } from '../i18n/index.js';
 
-const links = [
-  profile.email && { label: 'Email', href: `mailto:${profile.email}` },
-  { label: 'LinkedIn', href: profile.linkedin, external: true },
-  { label: 'GitHub', href: profile.github, external: true },
-].filter(Boolean);
+const { t } = useI18n();
+
+const links = computed(() =>
+  [
+    profile.email && { label: t('contact.email'), href: `mailto:${profile.email}` },
+    { label: 'LinkedIn', href: profile.linkedin, external: true },
+    { label: 'GitHub', href: profile.github, external: true },
+  ].filter(Boolean),
+);
 </script>
 
 <style scoped>

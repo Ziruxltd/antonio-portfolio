@@ -1,11 +1,15 @@
 <template>
   <footer class="footer">
     <hr />
-    <span>Built with Vue.js &mdash; Version {{ version }}</span>
+    <span>{{ t('footer.builtWith') }} &mdash; {{ t('footer.version') }} {{ version }}</span>
   </footer>
 </template>
 
 <script setup>
+import { useI18n } from '../i18n/index.js';
+
+const { t } = useI18n();
+
 // Injected at build time from package.json (see rsbuild.config.mjs).
 const version = __APP_VERSION__;
 </script>

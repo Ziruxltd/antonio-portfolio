@@ -7,15 +7,21 @@
             :href="`#${section.id}`"
             :class="{ selected: section.id === activeId }"
             :aria-current="section.id === activeId ? 'location' : undefined"
-            >{{ section.name }}</a
+            >{{ t(section.nameKey) }}</a
           >
         </li>
       </ul>
     </nav>
+    <LanguageSwitcher class="lang" />
   </header>
 </template>
 
 <script setup>
+import LanguageSwitcher from './LanguageSwitcher.vue';
+import { useI18n } from '../i18n/index.js';
+
+const { t } = useI18n();
+
 defineProps({
   sections: {
     type: Array,
@@ -38,6 +44,12 @@ header {
   z-index: 1000;
   display: flex;
   justify-content: center;
+  align-items: flex-start;
+}
+.lang {
+  position: absolute;
+  top: 0.75rem;
+  right: 1rem;
 }
 nav ul {
   background-color: var(--color-surface);
@@ -75,6 +87,13 @@ nav ul li a.selected {
 }
 
 @media (max-width: 600px) {
+  header {
+    justify-content: space-between;
+    gap: 0.5rem;
+  }
+  .lang {
+    position: static;
+  }
   nav ul {
     gap: 0.25rem;
     padding: 0 5px;
@@ -85,6 +104,16 @@ nav ul li a.selected {
   nav ul li a {
     font-size: 1.2rem;
     padding: 0.3em 0.5em;
+  }
+}
+
+@media (max-width: 400px) {
+  header {
+    padding-inline: 0.5rem;
+  }
+  nav ul li a {
+    font-size: 1rem;
+    padding: 0.3em 0.35em;
   }
 }
 </style>

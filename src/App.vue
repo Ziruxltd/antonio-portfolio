@@ -19,9 +19,9 @@ import ProjectsComponent from './sections/ProjectsComponent.vue';
 import ContactComponent from './sections/ContactComponent.vue';
 
 const sections = [
-  { name: 'About', id: 'about', component: AboutComponent },
-  { name: 'Projects', id: 'projects', component: ProjectsComponent },
-  { name: 'Contact', id: 'contact', component: ContactComponent },
+  { nameKey: 'nav.about', id: 'about', component: AboutComponent },
+  { nameKey: 'nav.projects', id: 'projects', component: ProjectsComponent },
+  { nameKey: 'nav.contact', id: 'contact', component: ContactComponent },
 ];
 
 const activeId = ref(sections[0].id);

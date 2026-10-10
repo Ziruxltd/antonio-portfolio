@@ -4,18 +4,26 @@
     <div class="card-content">
       <h3 class="card-title">{{ title }}</h3>
       <p v-if="description" class="card-description">{{ description }}</p>
-      <ul v-if="tech.length" class="tech-list" aria-label="Technologies">
+      <ul v-if="tech.length" class="tech-list" :aria-label="t('card.technologies')">
         <li v-for="item in tech" :key="item">{{ item }}</li>
       </ul>
       <div class="links">
-        <a v-if="link" :href="link" target="_blank" rel="noopener noreferrer">Live demo</a>
-        <a v-if="repo" :href="repo" target="_blank" rel="noopener noreferrer">Source code</a>
+        <a v-if="link" :href="link" target="_blank" rel="noopener noreferrer">{{
+          t('card.liveDemo')
+        }}</a>
+        <a v-if="repo" :href="repo" target="_blank" rel="noopener noreferrer">{{
+          t('card.sourceCode')
+        }}</a>
       </div>
     </div>
   </article>
 </template>
 
 <script setup>
+import { useI18n } from '../i18n/index.js';
+
+const { t } = useI18n();
+
 defineProps({
   title: { type: String, required: true },
   description: { type: String, default: '' },

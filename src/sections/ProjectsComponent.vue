@@ -1,8 +1,8 @@
 <template>
   <div>
-    <h2 class="section-title">Projects</h2>
+    <h2 class="section-title">{{ t('projects.title') }}</h2>
     <ul class="projects-grid">
-      <li v-for="project in projects" :key="project.title">
+      <li v-for="project in localizedProjects" :key="project.repo">
         <CardComponent v-bind="project" />
       </li>
     </ul>
@@ -10,8 +10,23 @@
 </template>
 
 <script setup>
+import { computed } from 'vue';
 import CardComponent from '../components/CardComponent.vue';
 import { projects } from '../data/projects.js';
+import { useI18n } from '../i18n/index.js';
+
+const { locale, t } = useI18n();
+
+const localize = (value) =>
+  typeof value === 'string' ? value : (value?.[locale.value] ?? value?.en ?? '');
+
+const localizedProjects = computed(() =>
+  projects.map((project) => ({
+    ...project,
+    title: localize(project.title),
+    description: localize(project.description),
+  })),
+);
 </script>
 
 <style scoped>

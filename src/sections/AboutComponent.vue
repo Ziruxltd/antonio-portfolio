@@ -3,10 +3,10 @@
     <div class="profile-content">
       <div class="info-container">
         <h1>{{ profile.name }}</h1>
-        <h2>{{ profile.role }}</h2>
+        <h2>{{ t('about.role') }}</h2>
         <div class="buttons-container">
           <a class="action-button" :href="profile.cv" download="Antonio-Jaramillo-CV.pdf">
-            <span>Download CV</span>
+            <span>{{ t('about.downloadCv') }}</span>
             <svg class="download-icon" viewBox="0 0 24 24" aria-hidden="true">
               <path
                 d="M12 16l-5-5 1.4-1.45 2.6 2.6V4h2v8.15l2.6-2.6L17 11l-5 5zm-6 4q-.8 0-1.4-.6T4 18v-3h2v3h12v-3h2v3q0 .8-.6 1.4T18 20H6z"
@@ -30,7 +30,7 @@
       <div class="image-container">
         <img
           src="/antonio-profile.webp"
-          :alt="`Portrait of ${profile.name}`"
+          :alt="`${t('about.portraitAlt')} ${profile.name}`"
           class="profile-image"
           width="1000"
           height="1200"
@@ -39,17 +39,10 @@
       </div>
     </div>
     <article>
-      <p class="about-text">
-        I am a web developer specialized in frontend with 3 years of experience, having worked with
-        both entrepreneurs and large companies. I am a quick learner: during this time I have
-        mastered technologies such as Vue.js, React, Lit Elements, Playwright, and Electron.js.
-        Coming from a sports background, I know how to identify my role within a team and contribute
-        to a positive work environment. I am driven by continuous learning and exploring new ways to
-        solve problems, with the goal of growing and becoming a better programmer.
-      </p>
+      <p class="about-text">{{ t('about.text') }}</p>
     </article>
     <div class="skills-container">
-      <h2>Skills</h2>
+      <h2>{{ t('about.skills') }}</h2>
       <ul class="chips">
         <li v-for="skill in skills" :key="skill.label">
           <ChipComponent :label="skill.label" :icon="skill.icon" />
@@ -63,6 +56,9 @@
 import ChipComponent from '../components/ChipComponent.vue';
 import { profile } from '../data/profile.js';
 import { skills } from '../data/skills.js';
+import { useI18n } from '../i18n/index.js';
+
+const { t } = useI18n();
 
 const socialLinks = [
   { label: 'GitHub', href: profile.github, img: '/icons/github-icon.svg' },
