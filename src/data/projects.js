@@ -1,5 +1,13 @@
 export const projects = [
   {
+    title: 'Who pays your salary?',
+    description:
+      'An interactive estimate of how many people in Spain live on public income (public employment, pensions, unemployment benefits…) versus private income, with adjustable assumptions. Built with the help of Claude Code.',
+    tech: ['Astro', 'TypeScript', 'Claude Code'],
+    link: 'https://quien-paga.antoniojaramillo.dev',
+    repo: 'https://github.com/Ziruxltd/quien-paga-tu-nomina',
+  },
+  {
     title: 'Días de pensiones',
     description:
       'A small project that helps raise awareness about the excessive spending on retirement pensions in Spain.',
