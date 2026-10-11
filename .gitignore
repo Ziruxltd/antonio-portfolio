@@ -14,3 +14,7 @@ dist/
 .vscode/*
 !.vscode/extensions.json
 .idea
+
+# CV, downloaded at build time from Ziruxltd/cv (scripts/fetch-cv.mjs)
+public/cv/
+public/cv.pdf

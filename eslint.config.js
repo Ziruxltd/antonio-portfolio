@@ -17,7 +17,7 @@ export default [
     },
   },
   {
-    files: ['*.config.{js,mjs}'],
+    files: ['*.config.{js,mjs}', 'scripts/**'],
     languageOptions: {
       globals: globals.node,
     },

@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "rsbuild dev --open",
+    "prebuild": "node scripts/fetch-cv.mjs",
     "build": "rsbuild build",
     "preview": "rsbuild preview",
     "test": "node --test",
