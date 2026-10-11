@@ -2,9 +2,10 @@ export const messages = {
   en: {
     nav: { about: 'About', projects: 'Projects', contact: 'Contact' },
     about: {
-      role: 'Web Developer',
+      role: 'Frontend Developer',
       downloadCv: 'Download CV',
-      text: 'I am a web developer specialized in frontend with 3 years of experience, having worked with both entrepreneurs and large companies. I am a quick learner: during this time I have mastered technologies such as Vue.js, React, Lit Elements, Playwright, and Electron.js. Coming from a sports background, I know how to identify my role within a team and contribute to a positive work environment. I am driven by continuous learning and exploring new ways to solve problems, with the goal of growing and becoming a better programmer.',
+      viewCv: 'View CV',
+      text: 'Frontend developer with four years of experience building banking applications and reusable web components for BBVA with Vue, React and Lit. My background as a strength and conditioning and basketball coach shaped how I work in teams: leadership, clear communication and empathy. I use Claude and other AI tools daily to deliver faster: automating repetitive work, prototyping ideas in hours instead of days and keeping quality high through tests and review. I am looking for a stable long-term position where I can keep growing as an engineer.',
       skills: 'Skills',
       portraitAlt: 'Portrait of',
     },
@@ -21,9 +22,10 @@ export const messages = {
   es: {
     nav: { about: 'Sobre mí', projects: 'Proyectos', contact: 'Contacto' },
     about: {
-      role: 'Desarrollador web',
+      role: 'Desarrollador frontend',
       downloadCv: 'Descargar CV',
-      text: 'Soy desarrollador web especializado en frontend con 3 años de experiencia, y he trabajado tanto con emprendedores como con grandes empresas. Aprendo rápido: en este tiempo he dominado tecnologías como Vue.js, React, Lit Elements, Playwright y Electron.js. Vengo del mundo del deporte, así que sé identificar mi papel dentro de un equipo y contribuir a un buen ambiente de trabajo. Me motiva aprender continuamente y explorar nuevas formas de resolver problemas, con el objetivo de crecer y ser mejor programador.',
+      viewCv: 'Ver CV',
+      text: 'Desarrollador frontend con cuatro años de experiencia creando aplicaciones bancarias y componentes web reutilizables para BBVA con Vue, React y Lit. Mi trayectoria como preparador físico y entrenador de baloncesto ha marcado mi forma de trabajar en equipo: liderazgo, comunicación clara y empatía. Uso Claude y otras herramientas de IA a diario para entregar más rápido: automatizo tareas repetitivas, prototipo ideas en horas en lugar de días y mantengo la calidad con tests y revisiones. Busco un puesto estable a largo plazo donde seguir creciendo como ingeniero.',
       skills: 'Habilidades',
       portraitAlt: 'Retrato de',
     },
@@ -40,9 +42,10 @@ export const messages = {
   de: {
     nav: { about: 'Über mich', projects: 'Projekte', contact: 'Kontakt' },
     about: {
-      role: 'Webentwickler',
+      role: 'Frontend-Entwickler',
       downloadCv: 'Lebenslauf herunterladen',
-      text: 'Ich bin Webentwickler mit Schwerpunkt Frontend und 3 Jahren Erfahrung und habe sowohl mit Gründern als auch mit großen Unternehmen zusammengearbeitet. Ich lerne schnell: In dieser Zeit habe ich Technologien wie Vue.js, React, Lit Elements, Playwright und Electron.js gemeistert. Durch meinen sportlichen Hintergrund weiß ich, wie ich meine Rolle im Team finde und zu einem positiven Arbeitsklima beitrage. Mich treibt ständiges Lernen und die Suche nach neuen Lösungswegen an – mit dem Ziel, mich weiterzuentwickeln und ein besserer Programmierer zu werden.',
+      viewCv: 'Lebenslauf ansehen',
+      text: 'Frontend-Entwickler mit vier Jahren Erfahrung in der Entwicklung von Banking-Anwendungen und wiederverwendbaren Webkomponenten für die BBVA mit Vue, React und Lit. Meine Zeit als Athletiktrainer und Basketballtrainer hat meine Arbeitsweise im Team geprägt: Führung, klare Kommunikation und Empathie. Ich nutze Claude und andere KI-Tools täglich, um schneller zu liefern: Ich automatisiere wiederkehrende Aufgaben, entwickle Prototypen in Stunden statt Tagen und sichere die Qualität durch Tests und Reviews. Ich suche eine langfristige Festanstellung, in der ich mich als Entwickler weiterentwickeln kann.',
       skills: 'Fähigkeiten',
       portraitAlt: 'Porträt von',
     },

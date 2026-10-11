@@ -3,7 +3,6 @@
     <button
       type="button"
       class="lang-current"
-      aria-haspopup="listbox"
       :aria-expanded="open"
       :aria-label="`${t('lang.change')} (${current.name})`"
       :title="current.name"
@@ -11,16 +10,12 @@
     >
       <img :src="current.flag" alt="" class="flag" />
     </button>
-    <ul v-if="open" class="lang-options" role="listbox" :aria-label="t('lang.change')">
-      <li
-        v-for="option in LOCALES"
-        :key="option.code"
-        role="option"
-        :aria-selected="option.code === locale"
-      >
+    <ul v-if="open" class="lang-options" :aria-label="t('lang.change')">
+      <li v-for="option in LOCALES" :key="option.code">
         <button
           type="button"
           :class="{ selected: option.code === locale }"
+          :aria-current="option.code === locale"
           :aria-label="option.name"
           :title="option.name"
           :lang="option.htmlLang"

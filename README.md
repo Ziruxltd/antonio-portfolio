@@ -18,6 +18,7 @@ npm run preview   # preview the production build
 ## Code quality
 
 ```bash
+npm test              # unit tests (Node's built-in runner)
 npm run lint          # ESLint
 npm run format        # format all files with Prettier
 npm run format:check  # check formatting (used in CI)
@@ -31,6 +32,7 @@ Every push and pull request to `master` runs lint, format check and build on Git
 - Projects: `src/data/projects.js` (screenshots in `public/`)
 - Skills: `src/data/skills.js` (icons in `public/icons/`)
 - CV: `public/cv.pdf`
+- Web CV: `public/cv/index.html` (served at `/cv/`). It repeats the info in `profile.js` and the about text, so update it with them and print it again to `public/cv.pdf`.
 - Page title and meta tags: `rsbuild.config.mjs` and `index.html`
 
 The version shown in the footer is read from `package.json`.

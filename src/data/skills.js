@@ -12,4 +12,9 @@ export const skills = [
   { label: 'Playwright', icon: '/icons/playwright-icon.png' },
   { label: 'Lit', icon: '/icons/lit-icon.png' },
   { label: 'AWS', icon: '/icons/aws-icon.png' },
+  { label: 'Quasar' },
+  { label: 'Redux' },
+  { label: 'Jest' },
+  { label: 'Python' },
+  { label: 'Claude Code' },
 ];

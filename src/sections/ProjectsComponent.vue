@@ -2,7 +2,7 @@
   <div>
     <h2 class="section-title">{{ t('projects.title') }}</h2>
     <ul class="projects-grid">
-      <li v-for="project in localizedProjects" :key="project.repo">
+      <li v-for="project in localizedProjects" :key="project.repo ?? project.link">
         <CardComponent v-bind="project" />
       </li>
     </ul>

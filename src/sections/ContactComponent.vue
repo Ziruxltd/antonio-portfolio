@@ -22,13 +22,11 @@ import { useI18n } from '../i18n/index.js';
 
 const { t } = useI18n();
 
-const links = computed(() =>
-  [
-    profile.email && { label: t('contact.email'), href: `mailto:${profile.email}` },
-    { label: 'LinkedIn', href: profile.linkedin, external: true },
-    { label: 'GitHub', href: profile.github, external: true },
-  ].filter(Boolean),
-);
+const links = computed(() => [
+  { label: t('contact.email'), href: `mailto:${profile.email}` },
+  { label: 'LinkedIn', href: profile.linkedin, external: true },
+  { label: 'GitHub', href: profile.github, external: true },
+]);
 </script>
 
 <style scoped>

@@ -13,6 +13,9 @@
               />
             </svg>
           </a>
+          <a class="action-button" href="/cv/" target="_blank" rel="noopener">
+            {{ t('about.viewCv') }}
+          </a>
           <a
             v-for="link in socialLinks"
             :key="link.label"

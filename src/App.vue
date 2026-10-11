@@ -28,13 +28,14 @@ const activeId = ref(sections[0].id);
 let observer;
 
 onMounted(() => {
-  // Marks as active the section crossing the middle of the viewport.
+  // Marks as active the section crossing a line 20% from the top of the viewport
+  // (high enough that the short last section can reach it).
   observer = new IntersectionObserver(
     (entries) => {
       const visible = entries.find((entry) => entry.isIntersecting);
       if (visible) activeId.value = visible.target.id;
     },
-    { rootMargin: '-50% 0px -50% 0px' },
+    { rootMargin: '-20% 0px -80% 0px' },
   );
   sections.forEach(({ id }) => observer.observe(document.getElementById(id)));
 });
@@ -50,7 +51,6 @@ onBeforeUnmount(() => observer?.disconnect());
   color: var(--color-text);
   padding-top: var(--header-height);
   width: 100%;
-  overflow-x: hidden;
 }
 
 .content {
